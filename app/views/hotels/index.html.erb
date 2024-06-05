@@ -1,0 +1,18 @@
+<style>
+table, th, td {
+  border:1px solid black;
+  padding:3px;
+}
+</style>
+<table>
+    <tr>
+        <th>Hotel Name</th>
+        <th>Booking</th>
+    </tr>
+<% @hotels.each do |h| %>
+    <tr>
+    <td><h1><%= h.name%></h1>  </td>
+    <td><%= link_to 'book', new_booking_path(:hotel_id => h.id) %></td>
+    </tr>
+<%end%>
+</table>

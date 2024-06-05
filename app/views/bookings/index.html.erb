@@ -1,0 +1,37 @@
+<style>
+table, th, td {
+  border:1px solid black;
+  padding:3px;
+}
+</style>
+
+<table>
+    <tr>
+        <th>Hotel Name</th>
+        <th>Booking Date</th>
+        <th>Checkout Date</th>
+        <th>Rooms</th>
+        <th>Status</th>
+        <th>Edit Booking</th>
+        <th>Cancel Booking</th>
+    </tr>
+
+    <% @bookings.each do |booking|%>
+        <tr>
+        <td> <%= booking.hotel.name %></td>
+        <td><%= booking.start_date %></td>
+        <td><%= booking.end_date %></td>
+        <td><%= booking.rooms %></td>
+        <td><%= booking.booking_status %></td>
+        <td> <%= link_to 'Edit', edit_booking_path(id: booking.id), :class => 'btn'%>  </td>
+        <% if booking.booking_status == 'booked'%>
+        <td><button class='clickable-button' data-booking-id="<%= booking.id%>"> Cancel</button>
+        <% end%>
+        </td>
+    </tr>
+            
+            
+    <%end%>
+
+</table>
+
