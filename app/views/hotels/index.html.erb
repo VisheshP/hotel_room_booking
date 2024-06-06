@@ -4,15 +4,22 @@ table, th, td {
   padding:3px;
 }
 </style>
+
+<%= form_for Hotel.new, url: 'hotels/', method: 'GET' do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+<%end%>
+
+
 <table>
     <tr>
         <th>Hotel Name</th>
         <th>Booking</th>
     </tr>
-<% @hotels.each do |h| %>
-    <tr>
-    <td><h1><%= h.name%></h1>  </td>
-    <td><%= link_to 'book', new_booking_path(:hotel_id => h.id) %></td>
-    </tr>
-<%end%>
+    <% @hotels.each do |h| %>
+        <tr>
+        <td><h1><%= h.name%></h1>  </td>
+        <td><%= link_to 'book', new_booking_path(:hotel_id => h.id) %></td>
+        </tr>
+    <%end%>
 </table>

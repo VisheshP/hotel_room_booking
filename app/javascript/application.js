@@ -19,4 +19,17 @@ $(document).ready(function () {
       },
     });
   });
+
+  $("#search-btn").click(function () {
+    var text = $("#search-text").val();
+    if (text != "") {
+      $.ajax({
+        url: "/hotels",
+        type: "GET",
+        data: { search_string: text },
+      });
+    } else {
+      alert("enter search text!");
+    }
+  });
 });

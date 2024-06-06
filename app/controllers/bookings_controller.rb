@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
     def create
         @booking_params = booking_params
         @booking_params[:booking_status] = 'booked'
-        p @booking_params
         @booking = Booking.new(@booking_params)
         if @booking.save!
             redirect_to @booking
@@ -28,7 +27,6 @@ class BookingsController < ApplicationController
 
     def edit
         @booking = Booking.find_by(id: params[:id])
-        p @booking
         @hotel_id = @booking.hotel.id
         @user_id = 1
     end
@@ -47,8 +45,8 @@ class BookingsController < ApplicationController
         if @booking.save!
             render :json => {success: true} 
         end
-        
     end
+    
     private
 
     def booking_params

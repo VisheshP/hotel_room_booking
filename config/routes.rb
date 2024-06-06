@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "hotels#index"
 
-  resources :hotels
+  resources :hotels 
   resources :bookings do
     put "cancel"
   end
